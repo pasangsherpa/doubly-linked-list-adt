@@ -47,7 +47,81 @@ Creates an empty list.
 
 ### Methods
 
+#### .add(element)
 
+Adds an element to the end of the list and returns the new size of the list.
+
+##### element
+
+Type: `object`
+
+the element to be added to the list.
+
+#### .remove() `throws "No such element found` 
+
+Removes an element from the end of the list.
+
+#### .remove(index) `throws "No such element found` 
+
+Removes the element at the specified position in this list.
+
+##### index
+
+Type: `int`
+
+the index of the element to be removed.
+
+#### .first() `throws "LinkedList is empty" error` 
+
+Returns the first element of the list.
+
+Type: `object`
+
+the element at the front of the list.
+
+#### .get(index) 
+
+Returns the element of the list in the given index and null if index out of bound.
+
+Type: `object`
+
+the element at the given index of the list.
+
+#### .isEmpty()
+
+Returns true if this list contains no elements.
+
+Type: `boolean`
+
+whether or not the list is empty.
+
+#### .size()
+
+Returns the number of elements in the list.
+
+Type: `int`
+
+the number of element in the list.
+
+#### .clear() 
+
+Removes all element from the the list and returns the new size of the list.
+
+#### .iterator
+
+Returns an iterator to the list that iterates through the items.
+
+Type: `object`
+
+the iterator object of the list
+
+#### .iterator.next() `throws "No such element" error` 
+
+Returns the next item in the list.
+
+#### .iterator.hasNext()
+
+Returns whether the list has next item or not.
 
 ## License
 
