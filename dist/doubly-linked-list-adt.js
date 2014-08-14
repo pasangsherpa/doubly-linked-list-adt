@@ -1,6 +1,6 @@
 /*!
  * doubly-linked-list-adt - Doubly Linked List ADT for browser and nodejs
- * @version v0.0.0 - Sat Aug 09 2014
+ * @version v0.0.0 - Wed Aug 13 2014
  * @link https://github.com/pasangsherpa/doubly-linked-list-adt
  * @author Pasang Sherpa <pgyalzen@gmail.com> (https://github.com/pasangsherpa)
  * @license MIT
@@ -32,7 +32,23 @@
         }
 
         function remove(index) {
+        	if (typeof index !== 'undefined') {
+	        	root = removeAt(index, root);
+        	} else {
+        		root = removeAt(count - 1, root);
+        	}
+            count--;
+        }
 
+        function removeAt(index, node) {
+        	if (node === null) {
+        		throw new Error('removeAt(): No such element found.');
+        	} else if (index === 0) {
+        		return node.next;
+        	} else {
+        		node.next = removeAt(index - 1, node.next);
+        	}
+        	return node;
         }
 
         function first() {
