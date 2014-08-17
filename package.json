@@ -4,7 +4,7 @@
   "description": "Doubly Linked List ADT for browser and nodejs",
   "main": "dist/doubly-linked-list-adt.js",
   "scripts": {
-    "test": "node test/test.js"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -29,6 +29,7 @@
     "gulp-jshint": "~1.8.4",
     "gulp-load-plugins": "~0.5.3",
     "gulp-rename": "~1.2.0",
-    "gulp-uglify": "~0.3.1"
+    "gulp-uglify": "~0.3.1",
+    "mocha": "*"
   }
 }

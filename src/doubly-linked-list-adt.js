@@ -25,12 +25,14 @@
         }
 
         function remove(index) {
-        	if (typeof index !== 'undefined') {
-	        	root = removeAt(index, root);
-        	} else {
-        		root = removeAt(count - 1, root);
-        	}
-            count--;
+			var node = get(index? index : count - 1);
+			if (typeof index !== 'undefined') {
+				root = removeAt(index, root);
+			} else {
+				root = removeAt(count - 1, root);
+			}
+			count--;
+			return node;
         }
 
         function removeAt(index, node) {
