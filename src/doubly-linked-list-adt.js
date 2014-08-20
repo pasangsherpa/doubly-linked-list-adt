@@ -104,6 +104,35 @@
 				return counter > 0;
 			}
 
+			function next() {
+				if (!hasNext()) {
+					throw new Error('next(): No such element.');
+				}
+				if (!hasPrevious()) {
+					current = root;
+				}
+				lastAccessed = current;
+				var element = current.element;
+				current = current.next;
+				counter++;
+				return element;
+			}
+
+			function previous() {
+				if (!hasPrevious()) {
+					throw new Error('previous(): No such element.');
+				}
+				if (!hasNext()) {
+					current = tail;
+					counter--;
+				}
+				current = current.previous;
+				var element = current.element;
+				lastAccessed = current;
+				counter--;
+				return element;
+			}
+
 			return {
 				hasNext: hasNext,
 				hasPrevious: hasPrevious,
