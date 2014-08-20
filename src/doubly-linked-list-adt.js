@@ -91,6 +91,27 @@
 			return count;
 		}
 
+		function Iterator() {
+			var lastAccessed = null,
+				current = null,
+				counter = 0;
+
+			function hasNext() {
+				return counter < count;
+			}
+
+			function hasPrevious() {
+				return counter > 0;
+			}
+
+			return {
+				hasNext: hasNext,
+				hasPrevious: hasPrevious,
+				next: next,
+				previous: previous
+			};
+		}
+
 		return {
 			add: add,
 			addFront: addFront,
