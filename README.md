@@ -25,14 +25,14 @@ $ bower install --save doubly-linked-list-adt
 
 ```js
 var DoublyLinkedList = require('doubly-linked-list-adt');
-var doubly-linkedlist = new DoublyLinkedList();
+var list = new DoublyLinkedList();
 
 
 ```
 ```js
 <script type="text/javascript" src="https://raw.githubusercontent.com/pasangsherpa/doubly-linked-list-adt/master/dist/doubly-linked-list-adt.min.js"></script>
 <script type="text/javascript"> 
-  var doubly-linkedlist = new DoublyLinkedList();
+  var list = new DoublyLinkedList();
 
 </script>
 ```
