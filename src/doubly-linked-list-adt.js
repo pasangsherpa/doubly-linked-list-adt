@@ -10,16 +10,25 @@
 		}
 
 		function add(element) {
-			var node = new Node(element),
-				current = null;
+			var node = new Node(element);
 			if (root === null) {
-				root = node;
+				root = tail = node;
 			} else {
-				current = root;
-				while (current.next !== null) {
-					current = current.next;
-				}
-				current.next = tail = node;
+				tail.next = node;
+				node.previous = tail;
+				tail = node;
+			}
+			count++;
+		}
+
+		function addFront(element) {
+			var node = new Node(element);
+			if (root === null) {
+				root = tail = node;
+			} else {
+				node.next = root;
+				root.previous = node;
+				root = node;
 			}
 			count++;
 		}
@@ -84,11 +93,13 @@
 
 		return {
 			add: add,
+			addFront: addFront,
 			remove: remove,
 			first: first,
 			get: get,
 			isEmpty: isEmpty,
-			size: size
+			size: size,
+			iterator: new Iterator()
 		};
 	};
 
