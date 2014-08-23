@@ -2,7 +2,7 @@
 
 > Doubly Linked List ADT for browser and nodejs
 
-The **DoublyLinkedList** class represents a sequence of nodes that are doubly-linked together. It supports the usual *add* and *remove* operations, along with methods for examining the front of the list, testing if the list is empty, and iterating through the items in the list.
+The **DoublyLinkedList** class represents a sequence of nodes that are linked together. It supports the usual *add* and *remove* operations, along with methods for examining the front of the list, testing if the list is empty, and iterating through the items in the list.
 
 
 ## Install
