@@ -46,10 +46,6 @@ while(itr.hasNext()) {
   console.log(itr.next());
 }
 
-while(itr.hasPrevious()) {
-  console.log(itr.previous());
-}
-	
 ```
 ```js
 <script type="text/javascript" src="https://raw.githubusercontent.com/pasangsherpa/doubly-linked-list-adt/master/dist/doubly-linked-list-adt.min.js"></script>
@@ -72,10 +68,6 @@ while(itr.hasPrevious()) {
 
 	while(itr.hasNext()) {
 	  console.log(itr.next());
-	}
-
-	while(itr.hasPrevious()) {
-	  console.log(itr.previous());
 	}
 
 </script>
@@ -101,13 +93,25 @@ Type: `object`
 
 the element to be added to the list.
 
-#### .remove() `throws "No such element found` 
+#### .removeFirst() `throws "List is empty" error` 
 
-Removes an element from the end of the list.
+Removes an element from the front of the list and returns the element.
 
-#### .remove(index) `throws "No such element found` 
+Type: `object`
 
-Removes the element at the specified position in this list.
+the removed element of the list.
+
+#### .removeLast() `throws "List is empty" error` 
+
+Removes an element from the end of the list and returns the element.
+
+Type: `object`
+
+the removed element of the list.
+
+#### .remove(index) `throws "List is empty" error` 
+
+Removes the element at the specified position in this list and returns the element.
 
 ##### index
 
@@ -115,7 +119,7 @@ Type: `int`
 
 the index of the element to be removed.
 
-#### .first() `throws "LinkedList is empty" error` 
+#### .first() `throws "List is empty" error` 
 
 Returns the first element of the list.
 

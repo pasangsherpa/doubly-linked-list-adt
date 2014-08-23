@@ -33,36 +33,62 @@
 			count++;
 		}
 
-		function remove(index) {
-			var node = get(index ? index : count - 1);
-			if (typeof index !== 'undefined') {
-				root = removeAt(index, root);
-			} else {
-				root = removeAt(count - 1, root);
+		function removeFirst() {
+			if (isEmpty()) {
+				throw new Error('removeFirst(): List is empty.');
 			}
-			count--;
-			return node;
+			var element = root.element;
+			root.next.previous = null;
+			root = root.next;
+			return element;
 		}
 
-		function removeAt(index, node) {
-			if (node === null) {
-				throw new Error('removeAt(): No such element found.');
-			} else if (index === 0) {
-				return node.next;
-			} else {
-				node.next = removeAt(index - 1, node.next);
+		function removeLast() {
+			if (isEmpty()) {
+				throw new Error('removeLast(): List is empty.');
 			}
-			return node;
+			var element = tail.element;
+			tail.previous.next = null;
+			tail = tail.previous;
+			return element;
+		}
+
+		function remove(index) {
+			if (isEmpty()) {
+				throw new Error('remove(): List is empty.');
+			}
+			var node = getNode(index >= 0 ? index : count - 1),
+				previous, next;
+			next = node.next;
+			previous = node.previous;
+
+			if (count === 1) {
+				root = tail = null;
+			} else if (index === 0) {
+				// remove the root
+				next.previous = null;
+				root = next;
+			} else if (!index || index >= count - 1) {
+				// remove the end
+				previous.next = null;
+				tail = previous;
+			} else {
+				// remove the node
+				previous.next = next;
+				next.previous = previous;
+			}
+			count--;
+			return node.element;
 		}
 
 		function first() {
 			if (isEmpty()) {
 				throw new Error('first(): List is empty.');
 			}
-			return root;
+			return root.element;
 		}
 
-		function get(index) {
+		function getNode(index) {
 			if (index < 0 || index > count || root === null) {
 				return null;
 			}
@@ -71,8 +97,8 @@
 
 			if (index > midPoint) {
 				current = tail;
-				for (i = count; i > index; i--) {
-					current = current.next;
+				for (i = count - 1; i > index; i--) {
+					current = current.previous;
 				}
 			} else {
 				current = root;
@@ -81,6 +107,10 @@
 				}
 			}
 			return current;
+		}
+
+		function get(index) {
+			return getNode(index).element;
 		}
 
 		function isEmpty() {
@@ -100,15 +130,11 @@
 				return counter < count;
 			}
 
-			function hasPrevious() {
-				return counter > 0;
-			}
-
 			function next() {
 				if (!hasNext()) {
 					throw new Error('next(): No such element.');
 				}
-				if (!hasPrevious()) {
+				if (!counter) {
 					current = root;
 				}
 				lastAccessed = current;
@@ -118,26 +144,9 @@
 				return element;
 			}
 
-			function previous() {
-				if (!hasPrevious()) {
-					throw new Error('previous(): No such element.');
-				}
-				if (!hasNext()) {
-					current = tail;
-					counter--;
-				}
-				current = current.previous;
-				var element = current.element;
-				lastAccessed = current;
-				counter--;
-				return element;
-			}
-
 			return {
 				hasNext: hasNext,
-				hasPrevious: hasPrevious,
-				next: next,
-				previous: previous
+				next: next
 			};
 		}
 
@@ -145,6 +154,8 @@
 			add: add,
 			addFront: addFront,
 			remove: remove,
+			removeFirst: removeFirst,
+			removeLast: removeLast,
 			first: first,
 			get: get,
 			isEmpty: isEmpty,
