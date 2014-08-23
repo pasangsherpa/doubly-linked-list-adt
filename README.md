@@ -28,14 +28,14 @@ var DoublyLinkedList = require('doubly-linked-list-adt');
 var list = new DoublyLinkedList();
 
 list.add(1);
-list.first().element;
+list.first();
 list.remove();
 
 list.add(function(){console.log("hello world")}); // Prints "hello world" on console.
-list.first().element();
+list.first()();
 
 list.addFront("foo");
-list.get(1).element(); // Prints "hello world" on console.
+list.get(1)(); // Prints "hello world" on console.
 
 list.size();
 list.isEmpty();
@@ -52,14 +52,14 @@ while(itr.hasNext()) {
 <script type="text/javascript"> 
   	var list = new DoublyLinkedList();
 	list.add(1);
-	list.first().element;
+	list.first();
 	list.remove();
 
 	list.add(function(){console.log("hello world")}); // Prints "hello world" on console.
-	list.first().element();
+	list.first()();
 
 	list.addFront("foo");
-	list.get(1).element(); // Prints "hello world" on console.
+	list.get(1)(); // Prints "hello world" on console.
 
 	list.size();
 	list.isEmpty();
