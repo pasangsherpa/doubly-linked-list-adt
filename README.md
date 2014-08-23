@@ -27,12 +27,56 @@ $ bower install --save doubly-linked-list-adt
 var DoublyLinkedList = require('doubly-linked-list-adt');
 var list = new DoublyLinkedList();
 
+list.add(1);
+list.first().element;
+list.remove();
 
+list.add(function(){console.log("hello world")}); // Prints "hello world" on console.
+list.first().element();
+
+list.addFront("foo");
+list.get(1).element(); // Prints "hello world" on console.
+
+list.size();
+list.isEmpty();
+
+var itr = list.iterator;
+
+while(itr.hasNext()) {
+  console.log(itr.next());
+}
+
+while(itr.hasPrevious()) {
+  console.log(itr.previous());
+}
+	
 ```
 ```js
 <script type="text/javascript" src="https://raw.githubusercontent.com/pasangsherpa/doubly-linked-list-adt/master/dist/doubly-linked-list-adt.min.js"></script>
 <script type="text/javascript"> 
-  var list = new DoublyLinkedList();
+  	var list = new DoublyLinkedList();
+	list.add(1);
+	list.first().element;
+	list.remove();
+
+	list.add(function(){console.log("hello world")}); // Prints "hello world" on console.
+	list.first().element();
+
+	list.addFront("foo");
+	list.get(1).element(); // Prints "hello world" on console.
+
+	list.size();
+	list.isEmpty();
+
+	var itr = list.iterator;
+
+	while(itr.hasNext()) {
+	  console.log(itr.next());
+	}
+
+	while(itr.hasPrevious()) {
+	  console.log(itr.previous());
+	}
 
 </script>
 ```
