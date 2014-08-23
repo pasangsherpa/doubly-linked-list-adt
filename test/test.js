@@ -25,46 +25,43 @@ describe('DoublyLinkedList operation test', function() {
 		list.add("bar");
 		list.add("foo");
 
-		assert.equal(list.first().element, 1);
+		assert.equal(list.first(), 1);
 		assert.equal(list.size(), 3);
 		assert.equal(list.isEmpty(), false);
+
+	});
+
+	it('should be able to remove element from the list', function() {
+		assert.equal(list.remove(2), "foo");
+		assert.equal(list.size(), 2);
+		assert.equal(list.isEmpty(), false);
+
+		assert.equal(list.remove(1), "bar");
+		assert.equal(list.size(), 1);
+		assert.equal(list.isEmpty(), false);
+
+		assert.equal(list.remove(0), 1);
+		assert.equal(list.size(), 0);
+		assert.equal(list.isEmpty(), true);
+	});
+
+	it('should be able to get any element from the list', function() {
+		assert.equal(list.isEmpty(), true);
+
+		list.add("hello");	// index 0
+		list.add("foo");	// index 1
+		list.add("bar");	// index 2
+
+		assert.equal(list.isEmpty(), false);
+		assert.equal(list.size(), 3);
+		assert.equal(list.get(0), "hello");
+		assert.equal(list.get(1), "foo");
+		assert.equal(list.get(2), "bar");
 
 		list.remove();
 		list.remove();
 		list.remove();
 	});
-
-	// it('should be able to remove element from the list', function() {
-	// 	assert.equal(list.remove(2).element, 1);
-	// 	assert.equal(list.size(), 2);
-	// 	assert.equal(list.isEmpty(), false);
-
-	// 	assert.equal(list.remove(1).element, "bar");
-	// 	assert.equal(list.size(), 1);
-	// 	assert.equal(list.isEmpty(), false);
-
-	// 	// assert.equal(list.remove(0).element, "foo");
-	// 	// assert.equal(list.size(), 0);
-	// 	// assert.equal(list.isEmpty(), true);
-	// });
-
-	// it('should be able to get any element from the list', function() {
-	// 	assert.equal(list.isEmpty(), true);
-
-	// 	list.add("hello");	// index 0
-	// 	list.add("foo");	// index 1
-	// 	list.add("bar");	// index 2
-
-	// 	assert.equal(list.isEmpty(), false);
-	// 	assert.equal(list.size(), 3);
-	// 	assert.equal(list.get(0).element, "hello");
-	// 	assert.equal(list.get(1).element, "foo");
-	// 	assert.equal(list.get(2).element, "bar");
-
-	// 	list.remove();
-	// 	list.remove();
-	// 	list.remove();
-	// });
 
 	it('should iterate through the items from front and back without removing any item from the list', function() {
 		list.add(1);
@@ -77,10 +74,6 @@ describe('DoublyLinkedList operation test', function() {
 		while (itr.hasNext()) {
 			assert.equal(itr.next(), items[index++]);
 		}
-
-		// while (itr.hasPrevious()) {
-		// 	assert.equal(itr.previous(), items[index--]);
-		// }
 	});
 
 });
