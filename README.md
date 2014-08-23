@@ -151,10 +151,6 @@ Type: `int`
 
 the number of element in the list.
 
-#### .clear() 
-
-Removes all element from the the list and returns the new size of the list.
-
 #### .iterator
 
 Returns an iterator to the list that iterates through the items.
