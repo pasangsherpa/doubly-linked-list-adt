@@ -5,7 +5,7 @@ var DoublyLinkedList = require('../src/doubly-linked-list-adt.js');
 
 var list = new DoublyLinkedList();
 
-describe('DoublyLinkedList operation test', function() {
+describe('DoublyLinkedList operations test', function() {
 
 	it('should create an empty list in the beginning', function() {
 		assert.throws(function() {
