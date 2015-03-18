@@ -160,7 +160,9 @@
 			get: get,
 			isEmpty: isEmpty,
 			size: size,
-			iterator: new Iterator()
+			iterator: function() {
+				return new Iterator();
+			}
 		};
 	};
 
