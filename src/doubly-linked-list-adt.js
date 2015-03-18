@@ -161,7 +161,7 @@
 			isEmpty: isEmpty,
 			size: size,
 			iterator: function() {
-				new Iterator();
+				return new Iterator();
 			}
 		};
 	};
