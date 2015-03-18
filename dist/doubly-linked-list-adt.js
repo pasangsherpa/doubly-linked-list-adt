@@ -1,6 +1,6 @@
 /*!
  * doubly-linked-list-adt - Doubly Linked List ADT for browser and nodejs
- * @version v0.1.1 - Sat Aug 23 2014
+ * @version v0.1.2 - Wed Mar 18 2015
  * @link https://github.com/pasangsherpa/doubly-linked-list-adt
  * @author Pasang Sherpa <pgyalzen@gmail.com> (https://github.com/pasangsherpa)
  * @license MIT
@@ -167,7 +167,9 @@
 			get: get,
 			isEmpty: isEmpty,
 			size: size,
-			iterator: new Iterator()
+			iterator: function() {
+				new Iterator();
+			}
 		};
 	};
 
